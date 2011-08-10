@@ -14,6 +14,9 @@ Simply initialize the plugin on the intended elements:
 
 $('#login_form).find('inputs').focusify();
 
+
+OPTIONS
+
 The plugin accepts two optional settings, a custom class name to apply to the field's parent element (default is 'infocus'),
 and a jQuery selector string that specifies which parent element to apply the class name to (default is applied to direct parent
 using .parent() method).
@@ -21,7 +24,7 @@ using .parent() method).
 $('#login_form).find('inputs').focusify({
 	classname: 'my-focus',	// default classname is 'infocus'
 	parent: 'div.wrapper'	/* default uses .parent() to target the direct parent element, if specifying a custom selector,
-				   .parents('selector') method is used instead, where 'selector' is the passed jQuery string */
+				  .parents('selector') method is used instead, where 'selector' is the passed jQuery string */
 });
 
 
