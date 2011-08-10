@@ -3,25 +3,27 @@ $.fn.focusify = function(args){
 	var methods = {
 		ns: 'focusify',
 		
-		init: function(opts){
-			var _s = {
-					classname: 'infocus',
-					parent: '_'
-				},
-				_this = methods;
-			
-			$.extend(_s, opts || {});
-			
-			function handleFocusBlur(e){
-				var $this = $(this),
-					$parent = _s.parent === '_' ? $this.parent() : $this.parents(_s.parent);
+		st: {
+			classname: 'infocus',
+			parent: '_'
+		},
+		
+		handleFocusBlur: function(){
+			var $this = $(this),
+				_this = methods,
+				$parent = _this.st.parent === '_' ? $this.parent() : $this.parents(_this.st.parent);
 					
-				$parent.toggleClass(_s.classname);
-			}
+			$parent.toggleClass(_this.st.classname);
+		},
+		
+		init: function(opts){
+			var _this = methods;
+			
+			$.extend(_this.st, opts || {});
 			
 			this.each(function(){
 				if(!$.data(this, _this.ns)){
-					$(this).bind('focus.' + _this.ns + ' blur.' + _this.ns, handleFocusBlur);
+					$(this).bind('focus.' + _this.ns + ' blur.' + _this.ns, _this.handleFocusBlur);
 					$.data(this, _this.ns, true);
 				}
 			});
