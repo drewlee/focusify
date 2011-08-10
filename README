@@ -24,6 +24,9 @@ $('#login_form).find('inputs').focusify({
 							// .parents('selector') method is used instead, where 'selector' is the passed jQuery string
 });
 
+
+METHODS
+
 If you find the need to unbind focusify events and behaviors on your elements, use the 'destroy' method.
 
 $('#login_form).find('inputs').focusify('destroy');
