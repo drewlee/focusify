@@ -20,8 +20,8 @@ using .parent() method).
 
 $('#login_form).find('inputs').focusify({
 	classname: 'my-focus',	// default classname is 'infocus'
-	parent: 'div.wrapper'	// default uses .parent() to target the direct parent element, if specifying a custom selector,
-				// .parents('selector') method is used instead, where 'selector' is the passed jQuery string
+	parent: 'div.wrapper'	/* default uses .parent() to target the direct parent element, if specifying a custom selector,
+				   .parents('selector') method is used instead, where 'selector' is the passed jQuery string */
 });
 
 
