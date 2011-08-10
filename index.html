@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+
+<style>
+body{font:100% Arial, sans-serif;}
+.infocus{background-color:red;}
+</style>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script src="focusify.js"></script>
+</head>
+
+<body>
+
+<fieldset>
+    <label>Name:</label><input class="txt" type="text" value="" />
+</fieldset>
+
+<script>
+$(function(){
+    $('.txt').focusify().css('background-color', 'blue');
+    $('.txt').focusify();
+});
+</script>
+</body>
+</html>
