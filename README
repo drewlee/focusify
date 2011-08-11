@@ -24,9 +24,9 @@ preceding element since we assume the label element adjacent to the form field i
 $('input.text').focusify({
 	classname: 'my-focus',	// default classname is 'infocus'
 	parent: 'div.wrapper'	/* default uses .prev() to target the preceding element
-							   if specifying a custom selector, .parents('selector') method is used instead,
-							   where 'selector' is the passed jQuery string */
-	sibling: 'label'		// use if specifying an adjacent element
+								if specifying a custom selector, .parents('selector') method is used instead,
+								where 'selector' is the passed jQuery string */
+	sibling: 'label'		// use if targetting an adjacent element, uses .siblings('selector') selector
 });
 
 
