@@ -1,16 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Page Title</title>
+<title>Focusify</title>
 
-<style>
-body{font:100% Arial, sans-serif;}
-fieldset{display:block; border:none;}
-label{display:block; float:left; width:60px;}
-
-.fy-form{width:400px; background-color:#ddd; border-radius:8px;}
-.fy-txt{display:block; float:left; width:200px; border:1px solid #000; font:11px/15px Arial, sans-serif;}
-</style>
+<link href="styles.css" rel="stylesheet" />
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 <script src="focusify.js"></script>
@@ -19,45 +12,23 @@ label{display:block; float:left; width:60px;}
 <body>
 <form class="fy-form">
     <div class="fy-wrap">
-        <label>First Name:</label>
-        <input class="fy-txt" type="text" value="" />
+        <label for="fy_txt_1">First Name:</label>
+        <input id="fy_txt_1" class="fy-txt" type="text" value="" />
     </div>
     
     <div class="fy-wrap">
-        <label>Last Name:</label>
-        <input class="fy-txt" type="text" value="" />
+        <label for="fy_txt_2">Last Name:</label>
+        <input id="fy_txt_2" class="fy-txt" type="text" value="" />
     </div>
     
     <div class="fy-wrap">
-        <label>Checkbox A</label>
-        <input class="fy-cbox" type="checkbox" value="" />
-        
-        <label>Checkbox B</label>
-        <input class="fy-cbox" type="checkbox" value="" />
-        
-        <label>Checkbox C</label>
-        <input class="fy-cbox" type="checkbox" value="" />
+        <label for="fy_txta" class="full">Textarea</label>
+        <textarea id="fy_txta" class="fy-txta"></textarea>
     </div>
     
     <div class="fy-wrap">
-        <label>Radio A</label>
-        <input class="fy-rad" type="radio" name="f-rad" value="A" />
-        
-        <label>Radio B</label>
-        <input class="fy-rad" type="radio" name="f-rad" value="B "/>
-        
-        <label>Radio C</label>
-        <input class="fy-rad" type="radio" name="f-rad" value="C" />
-    </div>
-    
-    <div class="fy-wrap">
-        <label class="full">Textarea</label>
-        <textarea class="fy-txta"></textarea>
-    </div>
-    
-    <div class="fy-wrap">
-        <label>Select</label>
-        <select class="fy-select">
+        <label for="fy_select">Select</label>
+        <select id="fy_select" class="fy-select">
             <option>Choice 1</option>
             <option>Choice 2</option>
             <option>Choice 3</option>
@@ -67,8 +38,7 @@ label{display:block; float:left; width:60px;}
 
 <script>
 $(function(){
-    //$('.txt').focusify().css('background-color', 'blue');
-    //$('.txt').focusify();
+    $('.fy-txt, .fy-txta, .fy-select').focusify();
 });
 </script>
 </body>

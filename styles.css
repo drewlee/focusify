@@ -1,0 +1,40 @@
+body{font:100% Arial, sans-serif;}
+
+label,
+.fy-txt,
+.fy-select,
+.fy-txta{display:block; float:left; border:1px solid #666; font:11px Arial, sans-serif;
+	-webkit-border-radius:0 3px 3px 0; -moz-border-radius:0 3px 3px 0; -o-border-radius:0 3px 3px 0; border-radius:0 3px 3px 0;
+}
+
+/* form */
+.fy-form{float:left; padding:10px 12px; background-color:#ddd; font-size:11px; line-height:15px;
+	-webkit-border-radius:8px; -moz-border-radius:8px; -o-border-radius:8px; border-radius:8px;
+}
+
+/* label */
+label{display:block; width:75px; height:17px; padding:0 6px; border-right-width:0; background-color:#fff; line-height:17px;
+    -webkit-border-radius:3px 0 0 3px; -moz-border-radius:3px 0 0 3px; -o-border-radius:3px 0 0 3px; border-radius:3px 0 0 3px;
+}
+.full{float:none; width:286px; border-right-width:1px; border-bottom-width:0;
+    -webkit-border-radius:3px 3px 0 0; -moz-border-radius:3px 3px 0 0; -o-border-radius:3px 3px 0 0; border-radius:3px 3px 0 0;
+}
+
+/* field wrapper */
+.fy-wrap{float:left; clear:left; margin:2px 0;}
+
+/* field elements */
+.fy-txt{width:198px; height:17px; padding:0 6px; line-height:17px;}
+.fy-txta{width:294px; float:none; margin:0; padding:2px; resize:none; line-height:15px;
+    -webkit-border-radius:0 0 3px 3px; -moz-border-radius:0 0 3px 3px; -o-border-radius:0 0 3px 3px; border-radius:0 0 3px 3px;
+}
+.fy-select{height:19px; width:212px; line-height:19px;}
+
+/* focusify styles */
+.infocus{
+	-webkit-box-shadow:3px 3px 10px #bbe9ff, -3px -3px 10px #bbe9ff;
+	-moz-box-shadow:3px 3px 10px #bbe9ff, -3px -3px 10px #bbe9ff;
+	-o-box-shadow:3px 3px 10px #bbe9ff, -3px -3px 10px #bbe9ff;
+	box-shadow:3px 3px 10px #bbe9ff, -3px -3px 10px #bbe9ff;
+}
+.infocus label{background-color:#fffcbd;}
