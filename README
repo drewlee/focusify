@@ -18,7 +18,7 @@ $('input.text').focusify();
 OPTIONS
 
 The plugin accepts three optional settings, a custom class name to apply to the field's related element (default is 'infocus'),
-and two jQuery selector stringa which specify the related elements to apply the infocus class name to (default is applied to the
+and two jQuery selector strings which specify the related elements to apply the infocus class name to (default is applied to the
 preceding element since we assume the label element adjacent to the field is the target).
 
 $('input.text').focusify({
@@ -30,7 +30,7 @@ $('input.text').focusify({
 	// where 'selector' is the passed jQuery string
 	parent: 'div.wrapper'
 
-	// use if targetting an adjacent element, uses .siblings('selector') selector	
+	// use if targeting an adjacent element, uses .siblings('selector') selector	
 	sibling: 'label'
 });
 
