@@ -25,9 +25,9 @@ $('input.text').focusify({
 	// default classname is 'infocus'
 	classname: 'my-focus',
 	
-	/* default uses .prev() to target the preceding element
-	   if specifying a custom selector, .parents('selector') method is used instead,
-	   where 'selector' is the passed jQuery string */
+	// default uses .prev() to target the preceding element
+	// if specifying a custom selector, .parents('selector') method is used instead,
+	// where 'selector' is the passed jQuery string
 	parent: 'div.wrapper'
 
 	// use if targetting an adjacent element, uses .siblings('selector') selector	
