@@ -5,15 +5,27 @@ $.fn.focusify = function(args){
 		
 		st: {
 			classname: 'infocus',
-			parent: '_'
+			parent: null,
+			sibling: null
 		},
 		
 		handleFocusBlur: function(){
 			var $this = $(this),
 				_this = methods,
-				$parent = _this.st.parent === '_' ? $this.parent() : $this.parents(_this.st.parent);
-					
-			$parent.toggleClass(_this.st.classname);
+				$el;
+			
+			if(_this.st.sibling && _this.st.parent){
+				$el = $this.siblings(_this.st.sibling)
+						.add($this.parents(_this.st.parent));
+			}else if(_this.st.sibling){
+				$el = $this.siblings(_this.st.sibling);
+			}else if(_this.st.parent){
+				$el = $this.parents(_this.st.parent);
+			}else{
+				$el = $this.prev();
+			}
+			
+			$el.toggleClass(_this.st.classname);
 		},
 		
 		init: function(opts){
