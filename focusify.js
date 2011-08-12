@@ -7,7 +7,7 @@
  * Dual licensed under the MIT and GPL licenses, located in
  * MIT-LICENSE.txt and GPL-LICENSE.txt respectively.
  *
- * Date: 08/12/2011
+ * Date: Fri Aug 12 2011 10:28:11 GMT-0500
  */
 
 (function($){
