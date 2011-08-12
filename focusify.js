@@ -1,3 +1,15 @@
+/*
+ * Focusify jQuery Plugin v1.0
+ * http://andrewleeart.com
+ *
+ * Copyright (c) 2011 Andrew A. Lee
+ *
+ * Dual licensed under the MIT and GPL licenses, located in
+ * MIT-LICENSE.txt and GPL-LICENSE.txt respectively.
+ *
+ * Date: 08/12/2011
+ */
+
 (function($){
 $.fn.focusify = function(args){
 	var methods = {
