@@ -40,3 +40,8 @@ METHODS
 If you find the need to unbind focusify events and behaviors on your elements, use the 'destroy' method.
 
 $('input.text').focusify('destroy');
+
+
+ADDITIONAL INFO
+
+See index.html for demos and examples of implementation.
