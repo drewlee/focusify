@@ -6,7 +6,40 @@
 <link href="styles.css" rel="stylesheet" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 <script src="focusify.min.js"></script>
+<script>
+document.createElement('footer');
+
+function initForm3(){
+    $('#fy_form_3').find('.focus-hook').focusify({
+        parent: 'fieldset',
+        sibling: 'label',
+        classname: 'multi-focus'
+    });
+}
+
+$(function(){
+    $('#fy_form_1').find('.focus-hook').focusify();
+    
+    $('#fy_form_2').find('.focus-hook').focusify({parent: '.fy-wrap'});
+    
+    initForm3();
+    
+    $('#btn_destroy').click(function(){
+        var $this = $(this), cls = 'unbound';
+            
+        if($this.hasClass(cls)){
+            $this.removeClass(cls).html('Destroy Events');
+            initForm3();
+        }else{
+            $this.addClass(cls).html('Rebind Events');
+            $('#fy_form_3').find('.focus-hook').focusify('destroy');
+        }
+        
+    });
+});
+</script>
 </head>
+
 <body>
 <h1>Focusify jQuery Plugin Implementation</h1>
 
@@ -116,41 +149,12 @@ $('#fy_form_3').find('.focus-hook').focusify({
 <p>We can also quickly unbind all associated focusify events by applying the 'destroy' method. Click the button below
 to observe this functionality on the above form.</p>
 
-<pre>$('#fy_form_3').find('.focus-hook').focusify('destroy'); </pre>
+<pre>$('#fy_form_3').find('.focus-hook').focusify('destroy');</pre>
 
 <button id="btn_destroy">Destroy Events</button>
 
-<footer>&copy 2011 Andrew Lee | Contact: <a href="mailto:andrew@andrewleeart.com">andrew@andrewleeart.com</a></footer>
-
-<script>
-function initForm3(){
-    $('#fy_form_3').find('.focus-hook').focusify({
-        parent: 'fieldset',
-        sibling: 'label',
-        classname: 'multi-focus'
-    });
-}
-
-$(function(){
-    $('#fy_form_1').find('.focus-hook').focusify();
-    
-    $('#fy_form_2').find('.focus-hook').focusify({parent: '.fy-wrap'});
-    
-    initForm3();
-    
-    $('#btn_destroy').click(function(){
-        var $this = $(this), cls = 'unbound';
-            
-        if($this.hasClass(cls)){
-            $this.removeClass(cls).html('Destroy Events');
-            initForm3();
-        }else{
-            $this.addClass(cls).html('Rebind Events');
-            $('#fy_form_3').find('.focus-hook').focusify('destroy');
-        }
-        
-    });
-});
-</script>
+<footer>
+    &copy; 2011 Andrew Lee | Contact: <a href="mailto:andrew@andrewleeart.com">andrew@andrewleeart.com</a>
+</footer>
 </body>
 </html>
