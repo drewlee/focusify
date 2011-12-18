@@ -1,1 +1,160 @@
-My GitHub Page
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Focusify jQuery Plugin Implementation</title>
+<meta name="author" content="Andrew Lee" />
+<link href="styles.css" rel="stylesheet" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script src="focusify.min.js"></script>
+<script>
+document.createElement('footer');
+
+function initForm3(){
+    $('#fy_form_3').find('.focus-hook').focusify({
+        parent: 'fieldset',
+        sibling: 'label',
+        classname: 'multi-focus'
+    });
+}
+
+$(function(){
+    $('#fy_form_1').find('.focus-hook').focusify();
+    
+    $('#fy_form_2').find('.focus-hook').focusify({parent: '.fy-wrap'});
+    
+    initForm3();
+    
+    $('#btn_destroy').click(function(){
+        var $this = $(this), cls = 'unbound';
+            
+        if($this.hasClass(cls)){
+            $this.removeClass(cls).html('Destroy Events');
+            initForm3();
+        }else{
+            $this.addClass(cls).html('Rebind Events');
+            $('#fy_form_3').find('.focus-hook').focusify('destroy');
+        }
+        
+    });
+});
+</script>
+</head>
+
+<body>
+<h1>Focusify jQuery Plugin Implementation</h1>
+
+<!-- default settings -->
+<p>The simplest implementation. Class of 'infocus' gets applied to the adjacent label element on focus of input. With no options
+specified, elements that directly preceed the focusify target receive the class name.</p>
+
+<pre>$('#fy_form_1').find('.focus-hook').focusify();</pre>
+
+<form id="fy_form_1" class="fy-form">
+    <div class="fy-wrap">
+        <label for="fy_txt_a_1">First Name:</label>
+        <input id="fy_txt_a_1" class="fy-txt focus-hook" type="text" value="" />
+    </div>
+    
+    <div class="fy-wrap">
+        <label for="fy_txt_b_2">Last Name:</label>
+        <input id="fy_txt_b_2" class="fy-txt focus-hook" type="text" value="" />
+    </div>
+    
+    <div class="fy-wrap">
+        <label for="fy_txta_1" class="full">Textarea</label>
+        <textarea id="fy_txta_1" class="fy-txta focus-hook"></textarea>
+    </div>
+    
+    <div class="fy-wrap">
+        <label for="fy_select_1">Select</label>
+        <select id="fy_select_1" class="fy-select focus-hook">
+            <option>Choice 1</option>
+            <option>Choice 2</option>
+            <option>Choice 3</option>
+        </select>
+    </div>
+</form>
+
+<!-- apply focusify to parent element -->
+<p>In this example, we specify the class name to be applied to a parent element. This allows us get a little fancier with our
+presentation.</p>
+
+<pre>$('#fy_form_2').find('.focus-hook').focusify({parent: '.fy-wrap'});</pre>
+
+<form id="fy_form_2" class="fy-form">
+    <div class="fy-wrap">
+        <label for="fy_txt_a_2">First Name:</label>
+        <input id="fy_txt_a_2" class="fy-txt focus-hook" type="text" value="" />
+    </div>
+    
+    <div class="fy-wrap">
+        <label for="fy_txt_b_2">Last Name:</label>
+        <input id="fy_txt_b_2" class="fy-txt focus-hook" type="text" value="" />
+    </div>
+    
+    <div class="fy-wrap">
+        <label for="fy_txta_2" class="full">Textarea</label>
+        <textarea id="fy_txta_2" class="fy-txta focus-hook"></textarea>
+    </div>
+    
+    <div class="fy-wrap">
+        <label for="fy_select_2">Select</label>
+        <select id="fy_select_2" class="fy-select focus-hook">
+            <option>Choice 1</option>
+            <option>Choice 2</option>
+            <option>Choice 3</option>
+        </select>
+    </div>
+</form>
+
+<!-- complex example -->
+<p>Below is an example of a much more complex implementation. We use a custom class name, as well as specifying two targets,
+a parent element, and an adjacent label element. This allows us to visually cue groupings, by applying emphasis on the grouping's
+heading and the related label. With some clever CSS, we can create some pretty sophisticated effects.</p>
+
+<pre>
+$('#fy_form_3').find('.focus-hook').focusify({
+    parent: 'fieldset',
+    sibling: 'label',
+    classname: 'multi-focus'
+});
+</pre>
+
+<form id="fy_form_3" class="fy-form">
+    <fieldset class="multi">
+        <h1>Multiple Field Grouping</h1>
+        <div class="fy-wrap">
+            <label class="tall" for="fy_txta_3">Textarea</label>
+            <textarea id="fy_txta_3" class="fy-txta focus-hook"></textarea>
+        </div>
+        <div class="fy-wrap">
+            <label for="fy_txt_a_3">Entry 1</label>
+            <input id="fy_txt_a_3" class="fy-txt focus-hook" type="text" value="" />
+        </div>
+        <div class="fy-wrap">
+            <label for="fy_txt_b_3">Entry 2</label>
+            <input id="fy_txt_b_3" class="fy-txt focus-hook" type="text" value="" />
+        </div>
+        <div class="fy-wrap">
+            <label for="fy_txt_c_3">Entry 3</label>
+            <input id="fy_txt_c_3" class="fy-txt focus-hook" type="text" value="" />
+        </div>
+        <div class="fy-wrap">
+            <label for="fy_txt_d_3">Entry 4</label>
+            <input id="fy_txt_d_3" class="fy-txt focus-hook" type="text" value="" />
+        </div>
+    </fieldset>
+</form>
+
+<p>We can also quickly unbind all associated focusify events by applying the 'destroy' method. Click the button below
+to observe this functionality on the above form.</p>
+
+<pre>$('#fy_form_3').find('.focus-hook').focusify('destroy');</pre>
+
+<button id="btn_destroy">Destroy Events</button>
+
+<footer>
+    &copy; 2011 Andrew A. Lee | Contact: <a href="mailto:andrew@andrewleeart.com">andrew@andrewleeart.com</a>
+</footer>
+</body>
+</html>
