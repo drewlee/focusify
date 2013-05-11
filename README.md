@@ -8,8 +8,7 @@ therefore providing a method of styling a focused element's label or parent wrap
 ##Usage
 
 Simply initialize the plugin on the intended elements:
-```
-javascript
+```javascript
 $('input.text').focusify();
 ```
 
