@@ -5,13 +5,13 @@ there is no easy way to style elements that precede, or are the parents of a fie
 focus. Focusify intends to resolve this problem by attaching a class to the related element on focus,
 therefore providing a method of styling a focused element's label or parent wrapper.
 
-#Usage
+##Usage
 
 Simply initialize the plugin on the intended elements:
 
 $('input.text').focusify();
 
-#Options
+##Options
 
 The plugin accepts three optional settings, a custom class name to apply to the field's related element (default is 'infocus'),
 and two jQuery selector strings which specify the related elements to apply the infocus class name to (default is applied to the
@@ -31,12 +31,12 @@ $('input.text').focusify({
 });
 
 
-#Methods
+##Methods
 
 If you find the need to unbind focusify events and behaviors on your elements, use the 'destroy' method.
 
 $('input.text').focusify('destroy');
 
-#Additional Info
+##Additional Info
 
 See index.html for demos and examples of implementation.
