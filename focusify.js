@@ -1,74 +1,72 @@
-/*
- * Focusify jQuery Plugin v1.0
- * http://www.andrewleeart.com/wp/?p=84
- *
- * Copyright (c) 2011 Andrew A. Lee
- *
- * Dual licensed under the MIT and GPL licenses, located in
- * MIT-LICENSE.txt and GPL-LICENSE.txt respectively.
- *
- * Date: Sat Aug 13 2011 20:24:34 GMT-0500
- */
-
 (function($){
-$.fn.focusify = function(args){
-	var methods = {
-		ns: 'focusify',
-		
-		st: {
-			classname: 'infocus',
-			parent: null,
-			sibling: null
-		},
-		
-		handleFocusBlur: function(){
-			var $this = $(this),
-				_this = methods,
-				$el;
-			
-			if(_this.st.sibling && _this.st.parent){
-				$el = $this.siblings(_this.st.sibling)
-						.add($this.parents(_this.st.parent));
-			}else if(_this.st.sibling){
-				$el = $this.siblings(_this.st.sibling);
-			}else if(_this.st.parent){
-				$el = $this.parents(_this.st.parent);
-			}else{
-				$el = $this.prev();
-			}
-			
-			$el.toggleClass(_this.st.classname);
-		},
-		
-		init: function(opts){
-			var _this = methods;
-			
-			$.extend(_this.st, opts || {});
-			
-			this.each(function(){
-				if(!$.data(this, _this.ns)){
-					$(this).bind('focus.' + _this.ns + ' blur.' + _this.ns, _this.handleFocusBlur);
-					$.data(this, _this.ns, true);
-				}
-			});
-		},
-		
-		destroy: function(){
-			var _this = methods;
-			
-			this.each(function(){
-				$(this).unbind('.' + _this.ns);
-				$.removeData(this, _this.ns);
-			});
-		}
-	};
+  var defaults = {
+        classname: 'infocus',
+        parent: null,
+        sibling: null
+      },
+      namespace = 'focusify',
+      Focusify = function(){
+        this.init.apply(this, arguments);
+      };
 
-	if(arguments.length && args === 'destroy'){
-		methods.destroy.call(this);
-	}else{
-		methods.init.call(this, args);
-	}
-	
-	return this;
-};
+  $.extend(Focusify.prototype, {
+    init: function(element, config){
+      var self = this;
+
+      this.config = $.extend({}, defaults, config || {});
+      this.$el = $(element);
+
+      this.$el.on(
+        'focus.' + namespace + ' blur.' + namespace, 
+        $.proxy(self._handleFocusBlur, self)
+      );
+    },
+
+    destroy: function(){
+      this.$el
+        .unbind('.' + namespace)
+        .removeData(namespace); 
+    },
+
+    _handleFocusBlur: function(evt){
+      var $el = $(evt.target),
+          $focs = $();
+      
+      if (this.config.sibling){
+        $focs = $focs.add( $el.siblings(this.config.sibling) );
+      }
+
+      if (this.config.parent){
+        $focs = $focs.add( $el.parents(this.config.parent) );
+      }
+
+      if (!$focs.length){
+        $focs = $el.prev();
+      }
+
+      $focs.toggleClass(this.config.classname);
+    }
+  });
+
+  $.fn.focusify = function(args){
+    var instance;
+   
+    if (args === 'destroy'){
+      this.each(function(index, element){
+        if ($.data(element, namespace)){
+          instance = $.data(element, namespace);
+          instance.destroy();
+        }
+      });
+    } else {
+      this.each(function(index, element){
+        if (!$.data(element, namespace)){
+          instance = new Focusify(element, args);
+          $.data(element, namespace, instance);
+        }
+      });
+    }
+    
+    return this;
+  };
 })(jQuery);
