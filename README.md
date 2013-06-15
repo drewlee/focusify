@@ -1,20 +1,21 @@
-Focusify is a simple jQuery plugin for visually enhancing forms and form elements.
-Problems arise when there is a requirement to provide visual cues to the user when he/she
-is interacting with form fields. Since CSS works from a top down, left to right hierarchy,
-there is no easy way to style elements that precede, or are the parents of a field that is in
-focus. Focusify intends to resolve this problem by attaching a class to the related element on focus,
-therefore providing a method of styling a focused element's label or parent wrapper.
+Focusify is a simple jQuery plugin for visually enhancing forms and form elements. Problems surface
+when there is a requirement to provide visual cues from interactions with form fields. Since CSS
+works from a top down, left to right hierarchy, there is no simple way to style an element that 
+precedes, or is the parent of, an active field in the form. Focusify intends to resolve this issue
+by dynamically altering the class name of the related focused element, therefore providing a hook
+for the custome styling of the element's states.
 
 ##Usage
-Simply initialize the plugin on the intended elements:
+Simply initialize the plugin on the intended element(s):
 ```javascript
 $('input.text').focusify();
 ```
 
 ##Options
-The plugin accepts three optional settings, a custom class name to apply to the field's related element (default is 'infocus'),
-and two jQuery selector strings which specify the related elements to apply the infocus class name to (default is applied to the
-preceding element since we assume the label element adjacent to the field is the target).
+The plugin accepts three optional settings, a custom class name to apply to the field's related
+target (default class name is 'infocus'), and two jQuery selector strings, which specify the related
+elements to apply the 'infocus' class name to (default is applied to the preceding element, assuming
+the label element adjacent to the field is the intended target).
 
 ```javascript
 $('input.text').focusify({
@@ -23,20 +24,20 @@ $('input.text').focusify({
 	
   // default uses .prev() to target the preceding element
   // if specifying a custom selector, .parents('selector') method is used instead,
-  // where 'selector' is the passed jQuery string
+  // where 'selector' is the specified jQuery string
   parent: 'div.wrapper'
 
-  // use if targeting an adjacent element, uses .siblings('selector') selector
+  // use if targeting an adjacent element, uses .siblings( ) selector
   sibling: 'label'
 });
 ```
 
 ##Methods
-If you find the need to unbind focusify events and behaviors on your elements, use the 'destroy' method.
+Use the 'destroy' method when you need to remove focusify events and behaviors from your elements.
 
 ```javascript
 $('input.text').focusify('destroy');
 ```
 
 ##Additional Info
-See index.html for demos and examples of implementation.
+See index.html for implementation examples.
