@@ -3,7 +3,7 @@ when there is a requirement to provide visual cues from interactions with form f
 works from a top down, left to right hierarchy, there is no simple way to style an element that 
 precedes, or is the parent of, an active field in the form. Focusify intends to resolve this issue
 by dynamically altering the class name of the related focused element, therefore providing a hook
-for the custome styling of the element's states.
+for the custom styling of the element's states.
 
 ##Usage
 Simply initialize the plugin on the intended element(s):
