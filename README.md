@@ -40,4 +40,4 @@ $('input.text').focusify('destroy');
 ```
 
 ##Additional Info
-See index.html for implementation examples.
+See demo/index.html for implementation examples.
